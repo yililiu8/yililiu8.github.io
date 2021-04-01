@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import './projects.css';
 
 import Weatherify from "../assets/weatherify.png";
@@ -12,7 +12,9 @@ export class Projects extends React.Component {
         const num_tags = tags.length
         return (
             <div className="project-container">
-                <img className="img" src={image} alt={link} />
+                <div>
+                    <img className="img" src={image} alt={link}/>
+                </div>
                 <p className="project-title">{title}</p>
                 <hr className="custom-hr" />
                 <p className="project-body">{description}</p>
@@ -27,7 +29,7 @@ export class Projects extends React.Component {
     
     render (){
         return (
-            <div className="background-projects">
+            <div className="background-projects" data-aos='fade-left'>
                 <h1 className="title">Projects</h1>
                 <div>
                     {this.renderProject("Weatherify", Weatherify, "An iOS application that generates custom Spotify playlists and gives music recommendations based on the weather", "https://github.com/yililiu8/Weatherify", "GitHub", ["Swift", "Spotify Web API", "OpenWeatherMap"])}

@@ -4,7 +4,7 @@ import './experience.css';
 export class Experience extends React.Component {
     render (){
         return (
-            <div className="background">
+            <div className="background" data-aos='fade-left'>
                 <h1 className="title">Experience</h1>
                 <div className="experience">
                     <h1 className="experience-name">DevX, UCLA</h1>

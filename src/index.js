@@ -2,10 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import { Home } from './components/home.js'
 import { Projects } from './components/projects.js'
 import { Contact } from './components/contact.js'
 import { Experience } from './components/experience.js'
+
+import ProfilePic from "./assets/profile.jpeg";
 
 class Main extends React.Component {
     constructor(props) {
@@ -13,6 +18,17 @@ class Main extends React.Component {
         this.state = {
             section: "Home"
         };
+    }
+    
+    componentWillReceiveProps() {
+        AOS.refresh();
+    }
+    
+    componentDidMount(){
+        document.title = "Yili Liu"
+        AOS.init({
+              duration : 1000
+        })
     }
     
     redirectTo(sect) {
@@ -23,7 +39,7 @@ class Main extends React.Component {
     
     displaySection() {
         if(this.state.section === "Home") {
-            return <Home/>
+            return (<Home/>); 
         }
         else if(this.state.section === "Projects") {
             return <Projects />
@@ -40,10 +56,14 @@ class Main extends React.Component {
     }
     
     render (){
+        AOS.refresh()
         return (
             <div className="container">
-                <div className="contents">
-                    <h1 className="name-header">Yili Liu</h1>
+                <div className="contents" data-aos='fade-right'>
+                    <img className="profile-pic" src={ProfilePic} alt="https://www.facebook.com/profile.php?id=100004625357742" />
+                    <br />
+                    <button className="name-header" onClick={() => this.redirectTo("Home")}><span><h1 className="name-header">Yili Liu</h1></span></button>
+                    <br />
                     <button className="tab-btns" onClick={() => this.redirectTo("Home")}><span>Home</span></button>
                     <br />
                     <button className="tab-btns" onClick={() => this.redirectTo("Experience")}><span>Experience</span></button>
@@ -54,6 +74,9 @@ class Main extends React.Component {
                 </div>
                 <div className="display">
                     {this.displaySection()}
+                    <div className="footer" >
+                        <h1 className="copyright">Copyright © 2021 Yili Liu. All Rights Reserved.</h1>
+                    </div>
                 </div>
             </div>
         );

@@ -2,7 +2,7 @@
 .background {
     background: #FFFFFF;
     margin: 60px;
-    height: 70%;
+    height: 65%;
     min-width: 600px;
     max-width: 1000px;
 }
@@ -30,6 +30,11 @@
     min-width: 500px;
     width: 50%;
     margin: 0 auto;
+}
+
+.blue-body {
+    color: #59788E;
+    font-weight: 600; 
 }
 
 .icon {
