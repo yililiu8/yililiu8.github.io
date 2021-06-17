@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import Typist from 'react-typist';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import { Home } from './components/home.js'
-import { Projects } from './components/projects.js'
-import { Contact } from './components/contact.js'
-import { Experience } from './components/experience.js'
+import { About } from './about.jsx';
+import { Experience } from './experience.jsx';
+import { Involvement } from './experience.jsx';
+import { Projects } from './projects.jsx';
 
-import ProfilePic from "./assets/profile.jpeg";
+import GitHub from "./assets/github.png";
+import LinkedIn from "./assets/linkedin.png";
+import Email from "./assets/email.png";
+
 
 class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            section: "Home"
+            typing: true,
         };
     }
-    
+
     componentWillReceiveProps() {
         AOS.refresh();
     }
@@ -27,58 +31,53 @@ class Main extends React.Component {
     componentDidMount(){
         document.title = "Yili Liu"
         AOS.init({
-              duration : 1000
+            duration : 1000
         })
     }
     
-    redirectTo(sect) {
-        this.setState({
-            section: sect
-        })
-    }
-    
-    displaySection() {
-        if(this.state.section === "Home") {
-            return (<Home/>); 
-        }
-        else if(this.state.section === "Projects") {
-            return <Projects />
-        }
-        else if(this.state.section === "Experience") {
-            return <Experience />
-        }
-        else if(this.state.section === "Contact") {
-            return <Contact />
-        }
-        else {
-            return <h1>{this.state.section}</h1>
-        }
+    done = () => {
+        this.setState({ typing: false }, () => {
+          this.setState({ typing: true })
+        });
     }
     
     render (){
-        AOS.refresh()
         return (
             <div className="container">
-                <div className="contents" data-aos='fade-right'>
-                    <img className="profile-pic" src={ProfilePic} alt="https://www.facebook.com/profile.php?id=100004625357742" />
-                    <br />
-                    <button className="name-header" onClick={() => this.redirectTo("Home")}><span><h1 className="name-header">Yili Liu</h1></span></button>
-                    <br />
-                    <button className="tab-btns" onClick={() => this.redirectTo("Home")}><span>Home</span></button>
-                    <br />
-                    <button className="tab-btns" onClick={() => this.redirectTo("Experience")}><span>Experience</span></button>
-                    <br />
-                    <button className="tab-btns" onClick={() => this.redirectTo("Projects")}><span>Personal Projects</span></button>
-                    <br />
-                    <button className="tab-btns" onClick={() => this.redirectTo("Contact")}><span>Contact</span></button>
+                <div className="header">
+                    <p className="name-header">Yili Liu</p>
+                    {this.state.typing
+                    ? <Typist onTypingDone={this.done} 
+                            cursor={{blink:true}}
+                            className="blinker">
+                        <span className="typer">  UCLA Bruin </span>
+                        <Typist.Backspace count={13} delay={2000} />
+                        <span className="typer">Creator </span>
+                        <Typist.Backspace count={8} delay={2000} />
+                        <span className="typer">Software Engineer </span>
+                        <Typist.Backspace count={18} delay={2000} />
+                        <span className="typer">Learner </span>
+                        <Typist.Backspace count={8} delay={2000} />
+                    </Typist>
+                    : ''
+                    }
                 </div>
-                <div className="display">
-                    {this.displaySection()}
-                    <div className="footer" >
-                        <h1 className="copyright">Copyright © 2021 Yili Liu. All Rights Reserved.</h1>
-                    </div>
+                <div className="links" data-aos='fade-up'>
+                <div className="images" >
+                    <td onClick={()=> window.open("https://github.com/yililiu8")} data-aos='zoom-in'><img className="icon" src={GitHub} alt="https://github.com/yililiu8" /></td>
+                    <td onClick={()=> window.open("https://www.linkedin.com/in/yililiu/")} data-aos='zoom-in'><img className="icon-next" src={LinkedIn} alt="https://www.linkedin.com/in/yililiu/" /></td>
+                    <td onClick={()=> window.open("mailto:akoliu@gmail.com")} data-aos='zoom-in'><img className="icon-next" src={Email} alt="mailto:akoliu@gmail.com" /></td>
+                </div>
+                </div>
+                <div data-aos='fade-up'>{<About/>}</div>
+                <div data-aos='fade-up'>{<Experience/>}</div>
+                <div data-aos='fade-up'>{<Involvement/>}</div>
+                <div data-aos='fade-up'>{<Projects/>}</div>
+                <div className="footer">
+                  <p className="copyright">© 2021 Yili Liu</p>
                 </div>
             </div>
+            
         );
     }
 }

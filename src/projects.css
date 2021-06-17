@@ -1,47 +1,27 @@
-.background-projects {
-    background: #FFFFFF;
-    margin: 60px;
-    height: 2790px;
-    min-width: 600px;
-    max-width: 1000px;
-}
 
 .img {
-    margin-top: 30px;
 /*    width: 200px;*/
     height: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
     float: center;
-    display: block;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px; 
-}
-
-.img:hover{
-    height: 220px;
-    text-decoration: none;
-}
-
-.img:hover span:after {
-    text-decoration: none;
-    height: 200px;
-    transition: all 0.5s;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .project-title {
 /*    padding-bottom: 10px;*/
-    font-size: 22px;
+    font-size: 18px;
     width: 100%;
     text-align: center;
     font-weight: 600;
-    color: #3A3B3C;
+    color: var(--lavendar);
 }
 
 .project-body {
-    font-size: 18px;
+    font-size: 15px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -49,34 +29,54 @@
 .project-container {
     margin-top: 20px;
     border: 1px solid #EBECF0;
-    width: 50%;
-    margin-left: auto;
+    width: 300px;
+    margin-left: 20px;
     margin-right: auto;
-    margin-bottom: 50px;
-/*    box-shadow: 4px 4px 10px #A9A9A9;*/
+    margin-bottom: 30px;
+    float: left;
+    height: 240px; 
 }
 
-.custom-hr {
-    width: 90%;
-    color: #3A3B3C; 
+.project-inner {
+    transition: all 0.5s;
+    transform-style: preserve-3d;
 }
 
-.links {
-    padding-left: 20px;
+.project-container:hover .project-inner {
+    transform: rotateY(180deg);
+}
+
+.project-front, .project-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.project-back {
+    transform: rotateY(180deg);
+}
+
+
+
+.project-links {
     transition: all 0.5s;
     cursor: pointer;
     font-weight: 600;
 /*    color: #7285A5; */
     color: #4682B4;
     text-decoration: underline;
+    margin-top: 0px; 
+    margin-left: 20px;
 }
 
-.links:hover{
+.project-links:hover{
     text-decoration: none;
     color: #7285A5;
 }
 
-.links:hover span:after {
+.project-links:hover span:after {
     text-decoration: underline;
     color: #4682B4;
     transition: all 0.5s;
@@ -91,6 +91,7 @@
 /*    margin-right: auto;*/
     margin-left: 10px;
     overflow: scroll;
+    overflow-y: hidden;
     width: 90%;
 }
 
@@ -102,9 +103,32 @@
     text-align: center;
     border: 2px solid #4C516D;
     border-radius: 10px;
-    background: #7285A5;
+    background: var(--lavendar);
     color: white;
     font-size: 12px;
     font-weight: 600;
     height: 15px; 
+}
+
+.parent:after {
+    overflow-x: auto;
+    overflow-y: hidden;
+    clear: both;
+    content: "";
+     display: table;
+     /*white-space: nowrap;
+     margin-left: auto;
+      margin-right: auto;*/
+}
+
+table {
+    table-layout: fixed; 
+    width: 100%
+}
+
+.child{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
