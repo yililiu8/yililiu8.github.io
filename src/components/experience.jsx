@@ -91,7 +91,10 @@ export class Experience extends React.Component {
             <div className="section-body">
                 <p className="section-header"><u>Experience</u> <ExpandExperiences onClick={this.toggle}>{btnText}</ExpandExperiences></p>
                 <div>
-                {this.renderExperience("Oracle", "Software Engineer Intern", "June 2021 - Present", ["Oracle Cloud Infrastructure Data Horizon Team"])}
+                    {this.renderExperience("Oracle (OCI)", "Software Engineer Intern", "June 2021 - Present", 
+                        ["Reduced OCI’s data warehouse size by ~35 TB by building an automized data pipeline for external table creation", 
+                         "Used Python, Spark, and OCI Data Flow to minimize the size of external data by 73% through file conversion to Parquet", 
+                         "Developed an object lifecycle manager package for the export/import of data to and from OCI’s object storage and the data warehouse using PL/SQL"])}
                     {this.renderExperience("Nova, Tech For Good", "Software Developer", "April 2021 - Present", ["Collaborating with a non-profit to develop an iOS app that allows victims of assault to anonymously connect and chat"])}
                     {this.renderExperience("DevX, UCLA", "iOS Developer", "October 2020 - Present", 
                     ["Spearheaded the development for Sparke, an iOS application where users can lend and rent private parking spaces", 

@@ -1,12 +1,11 @@
 import React from "react";
-import './projects.css';
-import styled from "styled-components";
+import '../style/projects.css';
 
-import Weatherify from "./assets/weatherify.png";
-import Achieve from "./assets/achieve.png";
-import Ookla from "./assets/ookla.png";
-import Sparke from "./assets/sparke.png";
-import MiniRouge from "./assets/minirouge.png";
+import Weatherify from "../assets/weatherify.png";
+import Achieve from "../assets/achieve.png";
+import Ookla from "../assets/ookla.png";
+import Sparke from "../assets/sparke.png";
+import MiniRouge from "../assets/minirouge.png";
 
 class ProjectModel extends React.Component {
     constructor(props) {

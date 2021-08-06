@@ -20,11 +20,9 @@ const AboutSection = styled("div")`
     background-color: white;  
     color: var(--lavendar); 
     font-family: 'Roboto Slab';
-    max-width: 1000px;
     margin-left: 10%;
     margin-right: 10%;  
 `;
-//I'm Steve, a third-year undergraduate student pursuing a B.S. in Computer Science at the University of California - Los Angeles. 
 
 export class About extends React.Component {
     render (){

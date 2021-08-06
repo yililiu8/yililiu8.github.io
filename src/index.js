@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style/index.css';
 
 import Typist from 'react-typist';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import { About } from './about.jsx';
-import { Experience } from './experience.jsx';
-import { Involvement } from './experience.jsx';
-import { Projects } from './projects.jsx';
+import { About } from './components/about.jsx';
+import { Experience } from './components/experience.jsx';
+import { Involvement } from './components/experience.jsx';
+import { Projects } from './components/projects.jsx';
 
 import GitHub from "./assets/github.png";
 import LinkedIn from "./assets/linkedin.png";
@@ -56,7 +56,7 @@ class Main extends React.Component {
                         <Typist.Backspace count={8} delay={2000} />
                         <span className="typer">Software Engineer </span>
                         <Typist.Backspace count={18} delay={2000} />
-                        <span className="typer">Learner </span>
+                        <span className="typer">Student </span>
                         <Typist.Backspace count={8} delay={2000} />
                     </Typist>
                     : ''
@@ -77,7 +77,6 @@ class Main extends React.Component {
                   <p className="copyright">© 2021 Yili Liu</p>
                 </div>
             </div>
-            
         );
     }
 }
